@@ -17,7 +17,7 @@ int fileList();
 void directoryChanger();
 
 //universal defenitions
-const string directory = "C:/Users/josia/source/repos/recipe/holder/";
+const string directory = "/";
 
 
 
@@ -266,7 +266,7 @@ void fileDeleter()
 
 
 
-// lifted from https://www.delftstack.com/howto/cpp/how-to-get-list-of-files-in-a-directory-cpp/
+// largely lifted from https://www.delftstack.com/howto/cpp/how-to-get-list-of-files-in-a-directory-cpp/
 // this function is an int, but I don't acctually do anything with the return code
 int fileList()
 {
