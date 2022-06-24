@@ -14,6 +14,7 @@ string directoryAppender(string);
 void exisChecker();
 void fileDeleter();
 int fileList();
+void directoryChanger();
 
 //universal defenitions
 const string directory = "C:/Users/josia/source/repos/recipe/holder/";
@@ -149,6 +150,7 @@ void mainWrite()
 	string userFile, metaFile;	// used to know what file to write too
 	char lineData;	// used to input the data
 	int linesNum;		// used to know how many lines of data the user wants to enter
+	string sections[4] = { "introduction section. ", "ingredients section. ", "instructions section. ", "notes section. " };//names of the recipe sections
 	
 
 	//getting the name of the file the user wants to create
@@ -169,19 +171,15 @@ void mainWrite()
 		cout << userFile << " is now open." << endl;
 
 
-
-		// getting how many lines of the data the user wants to write
-		cout << "How many sections of data do you want to write to " << userFile << "?\n";
-		cin >> linesNum;
-
 		//writing data to testfile1
 		cout << "now writing to " << userFile
 			<< "\nMake sure to end each section with a ~ symbol." << endl;
 
-		for (int count = 1; count <= linesNum; count++)
+		for (int count = 0; count <= 3; count++)
 		{
+
 			// getting the users data
-			cout << "Enter the data for section " << count << ". " << endl;
+			cout << "You are now writing to the " << sections[count] << endl;
 
 			// writing the users data a character at a time using the put function
 			cin.get(lineData);
@@ -229,7 +227,7 @@ void exisChecker()
 	file.open(metaFile, ios::in);
 	if (file.fail())
 	{
-		// The file does not exist, but is created
+		// The file does not exist
 		cout << "That file name is not in use." << endl;
 
 	}
@@ -277,5 +275,30 @@ int fileList()
 		cout << file.path() << endl;
 
 	return EXIT_SUCCESS;
+
+}
+
+
+
+
+// this function would change the directory that is being used by the recipe program. it is currently not called by anything, and the most dangerous bits are disabled.
+void directoryChanger() 
+{
+	// variable defenitions
+	string newDirectory;
+
+	// getting the new address from the user
+	cout << "Enter the directory address with any slashes, /, changed to backslashes, \\." << endl;
+	cin >> newDirectory;
+
+
+	// To Do: error checking to see whether the directory the user entered exists or not
+	
+
+	// the following command would assign the new address to the global variable directory. it is currently disabled
+	/* 
+	directory = newDirectory;	
+	*/
+
 
 }
